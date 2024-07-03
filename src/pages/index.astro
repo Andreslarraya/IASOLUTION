@@ -1,30 +1,50 @@
 ---
-import Ventaja from "../components/Ventaja.jsx";
+import Ventaja from "../components/Ventaja.astro";
 import Layout from "../layouts/Layout.astro";
+import Venta from "./ventas.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main
-    class="flex flex-col items-center justify-center text-black max-w-7xl min-h-screen mx-auto"
-  >
+<Layout title="IA SOLUTION">
+  <main class="flex flex-col text-black max-w-7xl min-h-screen mx-auto">
     <header
-      class="grid grid-cols bg-[rgba(255,255,255,0.5)] backdrop-blur-sm w-full fixed top-0 left-0"
+      class="justify-center text-center items-center place-content-center flex flex-col bg-[rgba(255,255,255,0)] backdrop-blur-sm w-full fixed top-0 left-0 z-50"
     >
-      <div class="flex flex-row">
+      <a class="flex flex-row" href="/">
         <img
-          class="w-24 h-24 rounded-full"
+          class="lg:w-24 lg:h-24 w-12 h-12"
           src="favicon.svg"
           alt="Astro logo"
         />
-        <h1 class="font-bold text-4xl mt-4">IA SOLUTION</h1>
+        <h1 class="font-bold lg:text-4xl text-2xl lg:mt-6">IA SOLUTION</h1>
+      </a>
+      <div class="hidden md:flex justify-center space-x-4 text-center">
+        {
+          [
+            ["¿Quienes Somos?", "/#quienes-Somos"],
+            ["¿Como trabajamos?", "#como-trabajamos"],
+            ["IA en tu negocio", "/#ia-en-tu-negocio"],
+            ["Casos de exito", "/reports"],
+            ["Casos de exito", "/reports"],
+            ["Casos de exito", "/reports"],
+          ].map(([title, url]) => (
+            <div>
+              <a
+                href={url}
+                class="rounded-lg px-3   font-medium hover:text-blue-900 transition duration-100 text-xl lg:text-2xl"
+              >
+                {title}
+              </a>
+            </div>
+          ))
+        }
       </div>
     </header>
-
     <section
-      class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-36"
+      id="quienes-Somos"
+      class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-20 md:pt-32"
     >
       <h1 class="font-bold text-3xl lg:text-6xl">¿Quienes Somos?</h1>
-      <p class="text-xl">
+      <p class="text-xl my-6">
         Nuestra misión es ayudar a las empresas a aprovechar el poder de la
         inteligencia artificial para resolver desafíos complejos, mejorar la
         toma de decisiones y obtener una ventaja competitiva. Con un enfoque en
@@ -32,9 +52,38 @@ import Layout from "../layouts/Layout.astro";
         clientes para entender sus necesidades únicas y desarrollar soluciones a
         medida que se alineen con sus objetivos.
       </p>
+      <div class="flex justify-end">
+        <img
+          src="/right-ai.png"
+          alt=""
+          class="lg:w-1/2 rounded-s-full"
+          data-aos="fade-left"
+          data-aos-delay="500"
+        />
+      </div>
+      <p class="text-xl my-6">
+        Nuestra misión es ayudar a las empresas a aprovechar el poder de la
+        inteligencia artificial para resolver desafíos complejos, mejorar la
+        toma de decisiones y obtener una ventaja competitiva. Con un enfoque en
+        la calidad y la colaboración, trabajamos estrechamente con nuestros
+        clientes para entender sus necesidades únicas y desarrollar soluciones a
+        medida que se alineen con sus objetivos.
+      </p>
+      <div class="flex justify-start">
+        <img
+          src="/left-ai.png"
+          alt=""
+          class="lg:w-1/2 rounded-full"
+          data-aos="fade-right"
+          data-aos-delay="300"
+        />
+      </div>
     </section>
 
-    <section class="flex flex-col px-4 lg:px-12 py-12 items-center gap-2">
+    <section
+      id="como-trabajamos"
+      class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-[calc(30px+80px)] md:pt-[calc(32px+100px)]"
+    >
       <h1 class="font-bold text-3xl lg:text-6xl">¿Como trabajamos?</h1>
       <div class="grid lg:grid-cols-2 gap-12">
         <h1 class="text-sm lg:text-3xl">
@@ -146,11 +195,13 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </section>
 
-    <section class="flex flex-col px-4 lg:px-12 py-12 gap-2 text-center">
+    <section
+      id="ia-en-tu-negocio"
+      class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-[calc(30px+80px)] md:pt-[calc(32px+120px)]"
+    >
       <h1 class="font-bold text-3xl lg:text-6xl">IA en tu negocio</h1>
       <div class="grid lg:grid-cols-4 lg:grid-rows-2 gap-12 mt-6">
-        <Ventaja>
-          <h1 class="text-xl" slot="title">Venta</h1>
+        <Ventaja title="Ventas" href="/ventas">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="64"
@@ -169,8 +220,7 @@ import Layout from "../layouts/Layout.astro";
             ></svg
           >
         </Ventaja>
-        <Ventaja>
-          <h1 class="text-xl" slot="title">Servicios Financieros</h1>
+        <Ventaja title="Servicios Financieros" href="/servicios-financieros">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="64"
@@ -182,8 +232,7 @@ import Layout from "../layouts/Layout.astro";
             ></path></svg
           >
         </Ventaja>
-        <Ventaja>
-          <h1 class="text-xl" slot="title">Educación</h1>
+        <Ventaja title="Educación" href="/educacion">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="64"
@@ -195,8 +244,7 @@ import Layout from "../layouts/Layout.astro";
             ></path></svg
           >
         </Ventaja>
-        <Ventaja title="">
-          <h1 class="text-xl" slot="title">Medicina</h1>
+        <Ventaja title="Medicina" href="/medicina">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="64"
@@ -208,8 +256,7 @@ import Layout from "../layouts/Layout.astro";
             ></path></svg
           >
         </Ventaja>
-        <Ventaja>
-          <h1 class="text-xl" slot="title">Manufactura</h1>
+        <Ventaja title="Manufactura" href="/manufactura">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="64"
@@ -221,8 +268,7 @@ import Layout from "../layouts/Layout.astro";
             ></path></svg
           >
         </Ventaja>
-        <Ventaja>
-          <h1 class="text-xl" slot="title">Salud</h1>
+        <Ventaja title="Salud" href="/salud">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="64"
@@ -239,10 +285,10 @@ import Layout from "../layouts/Layout.astro";
             ></svg
           >
         </Ventaja>
-        <Ventaja>
-          <h1 class="text-xl" slot="title">
-            Asistencia personales y virtuales
-          </h1>
+        <Ventaja
+          title="Asistencia personales y virtuales"
+          href="/asis-personal-virtual"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="64"
@@ -259,8 +305,7 @@ import Layout from "../layouts/Layout.astro";
             ></path></svg
           >
         </Ventaja>
-        <Ventaja>
-          <h1 class="text-xl" slot="title">Tiendas Online</h1>
+        <Ventaja title="Tiendas Online" href="/tiendas-online">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="64"
@@ -278,5 +323,14 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </section>
   </main>
-  <style></style>
+  <section
+    id="ia-en-tu-negocio"
+    class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-[calc(30px+80px)] md:pt-[calc(32px+120px)]"
+  >
+    <h1 class="font-bold text-3xl lg:text-6xl">Casos de exito</h1>
+  </section>
+  <script>
+    import AOS from "aos";
+    AOS.init();
+  </script>
 </Layout>
