@@ -1,36 +1,41 @@
 ---
 import Ventaja from "../components/Ventaja.astro";
+import Beneficio from "../components/Beneficio.astro";
 import Layout from "../layouts/Layout.astro";
 import Venta from "./ventas.astro";
 ---
 
 <Layout title="IA SOLUTION">
-  <main class="flex flex-col text-black max-w-7xl min-h-screen mx-auto">
+  <main
+    class="flex flex-col text-black max-w-7xl mt-[100px] text-center m-auto min-h-screen justify-center items-center"
+  >
     <header
-      class="justify-center text-center items-center place-content-center flex flex-col bg-[rgba(255,255,255,0)] backdrop-blur-sm w-full fixed top-0 left-0 z-50"
+      class="text-center items-center place-content-center flex flex-col bg-[rgba(255,255,255,0)] backdrop-blur-sm fixed top-0 left-0 w-full h-[140px] z-[1000]"
     >
-      <a class="flex flex-row" href="/">
+      <a class="flex flex-row mt-4" href="/">
         <img
-          class="lg:w-24 lg:h-24 w-12 h-12"
+          class="w-12 h-12 lg:w-20 lg:h-20"
           src="favicon.svg"
           alt="Astro logo"
         />
-        <h1 class="font-bold lg:text-4xl text-2xl lg:mt-6">IA SOLUTION</h1>
+        <h1 class="mt-3 ml-2 text-2xl font-bold lg:text-3xl lg:mt-8">
+          IA SOLUTION
+        </h1>
       </a>
-      <div class="hidden md:flex justify-center space-x-4 text-center">
+      <div class="justify-center hidden space-x-4 text-center md:flex">
         {
           [
             ["¿Quienes Somos?", "/#quienes-Somos"],
             ["¿Como trabajamos?", "#como-trabajamos"],
             ["IA en tu negocio", "/#ia-en-tu-negocio"],
-            ["Casos de exito", "/reports"],
-            ["Casos de exito", "/reports"],
-            ["Casos de exito", "/reports"],
+            ["Ventajas y beneficios", "/#ventajas-y-beneficios"],
+            ["Casos de exito", "/#casos-de-exito"],
+            ["Contactanos", "/#contactanos"],
           ].map(([title, url]) => (
             <div>
               <a
                 href={url}
-                class="rounded-lg px-3   font-medium hover:text-blue-900 transition duration-100 text-xl lg:text-2xl"
+                class="px-3 text-xl font-medium rounded-lg hover:text-blue-900 ion-100 text-transition lg:text-2xl"
               >
                 {title}
               </a>
@@ -41,10 +46,10 @@ import Venta from "./ventas.astro";
     </header>
     <section
       id="quienes-Somos"
-      class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-20 md:pt-32"
+      class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-[calc(30px+30px)] md:pt-[calc(32px+100px)]"
     >
-      <h1 class="font-bold text-3xl lg:text-6xl">¿Quienes Somos?</h1>
-      <p class="text-xl my-6">
+      <h1 class="text-5xl font-bold lg:text-6xl">¿Quienes somos?</h1>
+      <p class="my-6 text-xl">
         Nuestra misión es ayudar a las empresas a aprovechar el poder de la
         inteligencia artificial para resolver desafíos complejos, mejorar la
         toma de decisiones y obtener una ventaja competitiva. Con un enfoque en
@@ -52,29 +57,12 @@ import Venta from "./ventas.astro";
         clientes para entender sus necesidades únicas y desarrollar soluciones a
         medida que se alineen con sus objetivos.
       </p>
-      <div class="flex justify-end">
-        <img
-          src="/right-ai.png"
-          alt=""
-          class="lg:w-1/2 rounded-s-full"
-          data-aos="fade-left"
-          data-aos-delay="500"
-        />
-      </div>
-      <p class="text-xl my-6">
-        Nuestra misión es ayudar a las empresas a aprovechar el poder de la
-        inteligencia artificial para resolver desafíos complejos, mejorar la
-        toma de decisiones y obtener una ventaja competitiva. Con un enfoque en
-        la calidad y la colaboración, trabajamos estrechamente con nuestros
-        clientes para entender sus necesidades únicas y desarrollar soluciones a
-        medida que se alineen con sus objetivos.
-      </p>
-      <div class="flex justify-start">
+      <div class="flex items-center justify-center">
         <img
           src="/left-ai.png"
           alt=""
-          class="lg:w-1/2 rounded-full"
-          data-aos="fade-right"
+          class="w-2/3 rounded-3xl"
+          data-aos="fade-up"
           data-aos-delay="300"
         />
       </div>
@@ -84,12 +72,15 @@ import Venta from "./ventas.astro";
       id="como-trabajamos"
       class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-[calc(30px+80px)] md:pt-[calc(32px+100px)]"
     >
-      <h1 class="font-bold text-3xl lg:text-6xl">¿Como trabajamos?</h1>
-      <div class="grid lg:grid-cols-2 gap-12">
-        <h1 class="text-sm lg:text-3xl">
-          Nos centramos en el crecimiento empresarial y la optimización mediante
-          la inteligencia artificial. Somos una firma especializada en IA.
-        </h1>
+      <h1 class="text-5xl font-bold lg:text-6xl">¿Cómo trabajamos?</h1>
+      <div class="grid gap-12 mt-4 lg:grid-cols-2">
+        <div class="flex self-center">
+          <h1 class="text-xl lg:text-3xl">
+            Nos centramos en el crecimiento empresarial y la optimización
+            mediante la inteligencia artificial. Somos una firma especializada
+            en IA.
+          </h1>
+        </div>
         <div>
           <ul class="flex flex-col gap-12">
             <div class="flex flex-col text-center">
@@ -111,7 +102,7 @@ import Venta from "./ventas.astro";
                     ></path></g
                   ></svg
                 >
-                <h1 class="text-sm">Identificamos</h1>
+                <h1 class="text-xl">Identificamos</h1>
               </div>
               <p class="text-xl">
                 Identificamos los procesos susceptibles de optimización y
@@ -133,7 +124,7 @@ import Venta from "./ventas.astro";
                     d="M30 9h-7v2h3.59L19 18.59l-4.29-4.3a1 1 0 0 0-1.42 0L6 21.59L7.41 23L14 16.41l4.29 4.3a1 1 0 0 0 1.42 0l8.29-8.3V16h2Z"
                   ></path></svg
                 >
-                <h1 class="text-sm">Analizamos</h1>
+                <h1 class="text-xl">Analizamos</h1>
               </div>
               <p class="text-xl">
                 Analizamos datos y algoritmos clave para mejorar la toma de
@@ -154,7 +145,7 @@ import Venta from "./ventas.astro";
                     d="M9.111 4.663A2 2 0 1 1 6.89 1.337a2 2 0 0 1 2.222 3.326zm-.555-2.494A1 1 0 1 0 7.444 3.83a1 1 0 0 0 1.112-1.66zm2.61.03a1.494 1.494 0 0 1 1.895.188a1.513 1.513 0 0 1-.487 2.46a1.49 1.49 0 0 1-1.635-.326a1.512 1.512 0 0 1 .228-2.321zm.48 1.61a.499.499 0 1 0 .705-.708a.5.5 0 0 0-.351-.15a.5.5 0 0 0-.5.503a.5.5 0 0 0 .146.356zM3.19 12.487H5v1.005H3.19a1.2 1.2 0 0 1-.842-.357a1.2 1.2 0 0 1-.348-.85v-1.81a1 1 0 0 1-.71-.332A1 1 0 0 1 1 9.408V7.226c.003-.472.19-.923.52-1.258c.329-.331.774-.52 1.24-.523H4.6a2.9 2.9 0 0 0-.55 1.006H2.76a.8.8 0 0 0-.54.232a.78.78 0 0 0-.22.543v2.232h1v2.826a.2.2 0 0 0 .05.151a.24.24 0 0 0 .14.05zm7.3-6.518a1.77 1.77 0 0 0-1.25-.523H6.76a1.77 1.77 0 0 0-1.24.523c-.33.335-.517.786-.52 1.258v3.178a1.06 1.06 0 0 0 .29.734a1 1 0 0 0 .71.332v2.323a1.2 1.2 0 0 0 .35.855c.18.168.407.277.65.312h2a1.15 1.15 0 0 0 1-1.167V11.47a1 1 0 0 0 .71-.332a1 1 0 0 0 .29-.734V7.226a1.8 1.8 0 0 0-.51-1.258zM10 10.454H9v3.34a.2.2 0 0 1-.06.14a.17.17 0 0 1-.14.06H7.19a.21.21 0 0 1-.2-.2v-3.34H6V7.226c0-.203.079-.398.22-.543a.8.8 0 0 1 .54-.232h2.48a.78.78 0 0 1 .705.48a.8.8 0 0 1 .055.295zm2.81 3.037H11v-1.005h1.8a.24.24 0 0 0 .14-.05a.2.2 0 0 0 .06-.152V9.458h1V7.226a.78.78 0 0 0-.22-.543a.8.8 0 0 0-.54-.232h-1.29a2.9 2.9 0 0 0-.55-1.006h1.84a1.77 1.77 0 0 1 1.24.523c.33.335.517.786.52 1.258v2.182c0 .273-.103.535-.289.733c-.186.199-.44.318-.711.333v1.81c0 .319-.125.624-.348.85a1.2 1.2 0 0 1-.842.357M4 1.945a1.49 1.49 0 0 0-1.386.932A1.52 1.52 0 0 0 2.94 4.52A1.497 1.497 0 0 0 5.5 3.454c0-.4-.158-.784-.44-1.067A1.5 1.5 0 0 0 4 1.945m0 2.012a.5.5 0 0 1-.5-.503a.504.504 0 0 1 .5-.503a.51.51 0 0 1 .5.503a.504.504 0 0 1-.5.503"
                     clip-rule="evenodd"></path></svg
                 >
-                <h1 class="text-sm">Organizamos</h1>
+                <h1 class="text-xl">Organizamos</h1>
               </div>
               <p class="text-xl">
                 Organizamos equipos dedicados al desarrollo e implementación de
@@ -183,7 +174,7 @@ import Venta from "./ventas.astro";
                     ></path></g
                   ></svg
                 >
-                <h1 class="text-sm">Plan de Acción</h1>
+                <h1 class="text-xl">Plan de Acción</h1>
               </div>
               <p class="text-xl">
                 Elaboramos un plan de acción estratégico para guiar a la
@@ -199,8 +190,8 @@ import Venta from "./ventas.astro";
       id="ia-en-tu-negocio"
       class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-[calc(30px+80px)] md:pt-[calc(32px+120px)]"
     >
-      <h1 class="font-bold text-3xl lg:text-6xl">IA en tu negocio</h1>
-      <div class="grid lg:grid-cols-4 lg:grid-rows-2 gap-12 mt-6">
+      <h1 class="text-5xl font-bold lg:text-6xl">IA en tu negocio</h1>
+      <div class="grid gap-12 mt-6 lg:grid-cols-4 lg:grid-rows-2">
         <Ventaja title="Ventas" href="/ventas">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -322,15 +313,138 @@ import Venta from "./ventas.astro";
         </Ventaja>
       </div>
     </section>
+
+    <section
+      id="ventajas-y-beneficios"
+      class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-[calc(30px+80px)] md:pt-[calc(32px+120px)]"
+    >
+      <div>
+        <h1 class="text-5xl font-bold lg:text-6xl">Ventajas y Beneficios</h1>
+        <h2 class="text-3xl font-bold lg:text-4xl">
+          de la Inteligencia Artificial
+        </h2>
+      </div>
+      <h2 class="text-xl lg:text-2xl">
+        La Inteligencia Artificial proporciona a los negocios beneficios
+        significativos, como mayor eficiencia, capacidad de análisis ampliada y
+        mejoras en las estrategias de ventas.
+      </h2>
+      <Beneficio title="Incremento de la rentabilidad">
+        <p>
+          La aceleración de los procesos con Inteligencia Artificial y la
+          experticia que genera aumentan la rentabilidad de la empresa.
+        </p>
+      </Beneficio>
+      <Beneficio title="Eficiencia">
+        <p>
+          Una mayor consistencia en los desempeños con una evidente reducción de
+          costos de operación.
+        </p>
+      </Beneficio>
+      <Beneficio title="Mejora los perfiles de clientes">
+        La Inteligencia Artificial permite definir carácter y características de
+        clientes más precisos para aumentar el nivel de ventas.
+      </Beneficio>
+      <Beneficio title="Mejor comprensión de los resultados">
+        <p>
+          Las plataformas inteligentes poseen características visuales más
+          apropiadas para las evaluaciones y un rápido entendimiento.
+        </p>
+      </Beneficio>
+      <Beneficio title="Ahorro de tiempo">
+        <p>
+          La clasificación y manipulación de los datos recaen en la Inteligencia
+          Artificial liberando a los empleados para otras tareas.
+        </p>
+      </Beneficio>
+      <Beneficio title="Promueve innovación">
+        <p>
+          Al ubicar alternativas y generar recomendaciones, la Inteligencia
+          Artificial permite el desarrollo de la creatividad empresarial.
+        </p>
+      </Beneficio>
+      <Beneficio title="Ahorro de dinero">
+        <p>
+          Con la Inteligencia Artificial se puede prescindir de labor humana.
+          Esto quiere decir que supondría un ahorro sustancial debido a que
+          disminuiría la necesidad de personal en la empresa.
+        </p>
+      </Beneficio>
+      <Beneficio title="Experticia aumentada">
+        <p>
+          La Inteligencia Artificial da soporte al proceso de toma de decisiones
+          incrementando las herramientas de análisis de los trabajadores.
+        </p>
+      </Beneficio>
+    </section>
+
+    <section
+      id="casos-de-exito"
+      class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-[calc(30px+80px)] md:pt-[calc(32px+120px)]"
+    >
+      <h1 class="text-5xl font-bold lg:text-6xl">Casos de éxito</h1>
+      <div id="videoContainer">
+        <h2 class="mt-12 mb-2 text-3xl font-bold lg:text-4xl">
+          Casalimpia: la empresa que revoluciona su mercado con IA
+        </h2>
+        <iframe
+          src="https://www.youtube.com/embed/5Gnb7OP-1xw?si=9OIC4-uijs71G6Fy"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        >
+        </iframe>
+        <h2 class="mt-12 mb-2 text-3xl font-bold lg:text-4xl">
+          Amazon go: compras más sencillas con IA
+        </h2>
+        <iframe
+          src="https://www.youtube.com/embed/WcKgTcGz8Eo?si=WE0RsgcC1bhuD0jJ"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        <h2 class="mt-12 mb-2 text-3xl font-bold lg:text-4xl">
+          BMW: inteligencia artificial en toda la cadena de valor
+        </h2>
+        <iframe
+          src="https://www.youtube.com/embed/7dXVCIy49Q0?si=wQ5I4L9BeoCUffiE"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section
+      id="contactanos"
+      class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-[calc(30px+80px)] md:pt-[calc(32px+120px)]"
+    >
+      <h1 class="text-5xl font-bold lg:text-6xl">Contactanos</h1>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfU5pwRut8NLxY8WAyMWpWnNwuPQq0n7bzCTOQKd0txmW59eg/viewform?embedded=true"
+        class="w-[400px] lg:w-[800px] h-[1192px] lg:h-[1400px]"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0">Cargando…</iframe
+      >
+    </section>
   </main>
-  <section
-    id="ia-en-tu-negocio"
-    class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center pt-[calc(30px+80px)] md:pt-[calc(32px+120px)]"
-  >
-    <h1 class="font-bold text-3xl lg:text-6xl">Casos de exito</h1>
-  </section>
-  <script>
-    import AOS from "aos";
-    AOS.init();
-  </script>
 </Layout>
+
+<script>
+  import AOS from "aos";
+  AOS.init();
+</script>
+<style>
+  #videoContainer {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+  }
+  #videoContainer iframe {
+    width: 100%;
+    height: 600px;
+  }
+</style>
