@@ -4,14 +4,14 @@ const { title, subTitle } = Astro.props;
 ---
 
 <Layout title={title}>
-  <main class="flex flex-col text-black max-w-7xl min-h-screen mx-auto">
+  <main class="flex flex-col min-h-screen mx-auto text-black max-w-7xl">
     <header
       class="grid grid-cols-3 justify-center text-center items-center place-content-center bg-[rgba(255,255,255,0)] backdrop-blur-sm w-full fixed top-0 left-0 h-[100px] z-[1000]"
     >
       <div>
         <button
           onclick="window.history.back()"
-          class="hover:bg-gray-200 font-bold py-2 px-4 rounded flex"
+          class="flex px-4 py-2 font-bold rounded hover:bg-gray-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -26,24 +26,26 @@ const { title, subTitle } = Astro.props;
         </button>
       </div>
       <div>
-        <a class="flex flex-row justify-center" href="/">
+        <a class="flex flex-row justify-center mt-4" href="/">
           <img
-            class="lg:w-24 lg:h-24 w-12 h-12"
+            class="w-12 h-12 lg:w-20 lg:h-20"
             src="favicon.svg"
             alt="Astro logo"
           />
-          <h1 class="font-bold lg:text-4xl text-2xl lg:mt-6">IA SOLUTION</h1>
+          <h1 class="mt-3 ml-2 text-2xl font-bold lg:text-3xl lg:mt-8">
+            IA SOLUTION
+          </h1>
         </a>
       </div>
     </header>
     <section
-      class="flex flex-col px-4 lg:px-12 items-center gap-2 text-center mt-28"
+      class="flex flex-col items-center gap-2 px-4 text-center lg:px-12 mt-28"
     >
-      <h1 class="font-bold text-3xl lg:text-6xl">{title}</h1>
-      <h2 class="font-bold text-2xl lg:text-4xl">
+      <h1 class="text-3xl font-bold lg:text-6xl">{title}</h1>
+      <h2 class="text-2xl font-bold lg:text-4xl">
         {subTitle}
       </h2>
-      <div class="text-sm md:text-xl flex flex-col gap-6 items-center">
+      <div class="flex flex-col items-center gap-6 text-sm md:text-xl">
         <slot />
       </div>
     </section>
